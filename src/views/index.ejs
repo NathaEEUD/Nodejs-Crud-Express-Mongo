@@ -64,8 +64,7 @@
 
     <script>
         document.getElementById('title').focus();
-        document.getElementById('delete')
-            .addEventListener('click', function () {
+        document.getElementById('delete').addEventListener('click', (e) => {
                 let response = confirm('Are you sure to delete?');
                 if (!response) {
                     e.preventDefault();

@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const db = require('../libs/db-connection')();
 
-module.exports = function () {
+module.exports = async function () {
 
     let Task = Schema({
         title: String,
@@ -10,5 +9,6 @@ module.exports = function () {
         status: Boolean
     });
 
-    return mongoose.model('tasks', Task);
+    const db = await require('../libs/db-connection')();
+    return db.model('tasks', Task);
 }

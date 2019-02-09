@@ -1,7 +1,10 @@
 const express = require('express');
 const router = express.Router();
+let model = null;
 
-const model = require('../model/task')();
+(async () => { 
+    model = await require('../model/task')();
+})();
 
 router.get('/', (req, res) => {
     model.find({}, (err, tasks) => {
@@ -9,9 +12,9 @@ router.get('/', (req, res) => {
         res.render('index', {
             title: 'CRUD',
             tasks: tasks
-        })
-    })
-})
+        });
+    });
+});
 
 router.post('/add', (req, res) => {
     let body = req.body;
@@ -20,7 +23,7 @@ router.post('/add', (req, res) => {
     model.create(body, (err, task) => {
         if (err) throw err;
         res.redirect('/');
-    })
+    });
 });
 
 router.get('/turn/:id', (req, res) => {
@@ -35,10 +38,10 @@ router.get('/turn/:id', (req, res) => {
 
 router.get('/delete/:id', (req, res) => {
     let id = req.params.id;
-    model.remove({_id: id}, (err, task) => {
+    model.deleteOne({_id: id}, (err, task) => {
         if (err) throw err;
         res.redirect('/');
-    })
+    });
 });
 
 module.exports = router;
