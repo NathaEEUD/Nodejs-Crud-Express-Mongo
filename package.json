@@ -1,0 +1,32 @@
+{
+  "name": "Nodejs-Crud-Express-Mongo",
+  "version": "1.0.0",
+  "description": "Nodejs-Crud-Express-Mongo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/app.js",
+    "start": "node src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NathaEEUD/Nodejs-Crud-Express-Mongo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NathaEEUD/Nodejs-Crud-Express-Mongo/issues"
+  },
+  "homepage": "https://github.com/NathaEEUD/Nodejs-Crud-Express-Mongo#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.10",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}
